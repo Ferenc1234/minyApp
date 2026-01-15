@@ -1,0 +1,95 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mine-app
+  namespace: default
+  labels:
+    app: mine-app
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: mine-app
+  template:
+    metadata:
+      labels:
+        app: mine-app
+    spec:
+      containers:
+      - name: app
+        image: mine-app:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+          name: http
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: mine-app-secret
+              key: DATABASE_URL
+        - name: SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: mine-app-secret
+              key: SECRET_KEY
+        - name: SQLALCHEMY_ECHO
+          valueFrom:
+            configMapKeyRef:
+              name: mine-app-config
+              key: SQLALCHEMY_ECHO
+        - name: ALGORITHM
+          valueFrom:
+            configMapKeyRef:
+              name: mine-app-config
+              key: ALGORITHM
+        - name: ACCESS_TOKEN_EXPIRE_MINUTES
+          valueFrom:
+            configMapKeyRef:
+              name: mine-app-config
+              key: ACCESS_TOKEN_EXPIRE_MINUTES
+        - name: LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              name: mine-app-config
+              key: LOG_LEVEL
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - mine-app
+              topologyKey: kubernetes.io/hostname

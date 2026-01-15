@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mine-app-config
+  namespace: default
+data:
+  SQLALCHEMY_ECHO: "False"
+  ALGORITHM: "HS256"
+  ACCESS_TOKEN_EXPIRE_MINUTES: "30"
+  LOG_LEVEL: "INFO"

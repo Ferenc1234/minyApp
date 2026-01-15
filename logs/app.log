@@ -1,0 +1,23 @@
+2026-01-15 08:23:36 - root - INFO - Starting up application
+2026-01-15 08:23:36 - app.database - INFO - Database tables created successfully
+2026-01-15 08:23:36 - root - INFO - Database initialized successfully
+2026-01-15 08:23:40 - root - INFO - Shutting down application
+2026-01-15 08:24:13 - root - INFO - Starting up application
+2026-01-15 08:24:13 - app.database - INFO - Database tables created successfully
+2026-01-15 08:24:13 - root - INFO - Database initialized successfully
+2026-01-15 08:26:54 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-01-15 08:26:54 - app.utils.logger - INFO - User Action: {"action": "user_registration", "user_id": 1, "timestamp": "2026-01-15T08:26:54.567976"}
+2026-01-15 08:26:54 - app.utils.logger - ERROR - Error: {"error": "Registration failed: User already exists", "error_type": "DUPLICATE_USER", "timestamp": "2026-01-15T08:26:54.577656", "context": {"username": "testuser_39525_8527"}}
+2026-01-15 08:26:54 - app.utils.logger - INFO - User Action: {"action": "user_login", "user_id": 1, "timestamp": "2026-01-15T08:26:54.805278"}
+2026-01-15 08:26:55 - app.utils.logger - ERROR - Error: {"error": "Login failed for user", "error_type": "INVALID_CREDENTIALS", "timestamp": "2026-01-15T08:26:55.023236", "context": {"username": "testuser_39525_8527"}}
+2026-01-15 08:26:55 - app.utils.logger - ERROR - Error: {"error": "Login failed for user", "error_type": "INVALID_CREDENTIALS", "timestamp": "2026-01-15T08:26:55.033494", "context": {"username": "admin' OR '1'='1"}}
+2026-01-15 08:29:22 - app.utils.logger - INFO - User Action: {"action": "user_registration", "user_id": 2, "timestamp": "2026-01-15T08:29:22.762308"}
+2026-01-15 08:29:22 - app.utils.logger - ERROR - Error: {"error": "Registration failed: User already exists", "error_type": "DUPLICATE_USER", "timestamp": "2026-01-15T08:29:22.771964", "context": {"username": "testuser_40975_26230"}}
+2026-01-15 08:29:23 - app.utils.logger - INFO - User Action: {"action": "user_login", "user_id": 2, "timestamp": "2026-01-15T08:29:23.002404"}
+2026-01-15 08:29:23 - app.utils.logger - ERROR - Error: {"error": "Login failed for user", "error_type": "INVALID_CREDENTIALS", "timestamp": "2026-01-15T08:29:23.220962", "context": {"username": "testuser_40975_26230"}}
+2026-01-15 08:29:23 - app.utils.logger - ERROR - Error: {"error": "Login failed for user", "error_type": "INVALID_CREDENTIALS", "timestamp": "2026-01-15T08:29:23.228900", "context": {"username": "admin' OR '1'='1"}}
