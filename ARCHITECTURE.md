@@ -46,15 +46,15 @@
 │  users                          games                       │
 │  ├── id (PK)                   ├── id (PK)                 │
 │  ├── username (UNIQUE)         ├── user_id (FK)            │
-│  ├── email (UNIQUE)            ├── bet_amount              │
-│  ├── password_hash             ├── grid_size               │
-│  ├── balance                   ├── mines_count             │
-│  ├── total_wagered             ├── grid_state (JSON)       │
-│  ├── total_won                 ├── revealed_cells (JSON)   │
-│  ├── total_games               ├── current_multiplier      │
-│  ├── created_at                ├── status (ENUM)           │
-│  ├── updated_at                ├── prize_amount            │
-│  └── is_active                 ├── created_at              │
+│  ├── password_hash             ├── bet_amount              │
+│  ├── balance                   ├── grid_size               │
+│  ├── total_wagered             ├── mines_count             │
+│  ├── total_won                 ├── grid_state (JSON)       │
+│  ├── total_games               ├── revealed_cells (JSON)   │
+│  ├── created_at                ├── current_multiplier      │
+│  ├── updated_at                ├── status (ENUM)           │
+│  └── is_active                 ├── prize_amount            │
+│                                ├── created_at              │
 │                                ├── updated_at              │
 │                                └── Indexes on user_id      │
 └─────────────────────────────────────────────────────────────┘

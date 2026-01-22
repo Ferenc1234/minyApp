@@ -43,14 +43,9 @@ async def register(
             device_id = uuid.uuid4().hex
 
         # Check if user exists
-        if user_data.email:
-            existing_user = db.query(User).filter(
-                (User.username == user_data.username) | (User.email == user_data.email)
-            ).first()
-        else:
-            existing_user = db.query(User).filter(
-                User.username == user_data.username
-            ).first()
+        existing_user = db.query(User).filter(
+            User.username == user_data.username
+        ).first()
         
         if existing_user:
             log_error(
@@ -96,16 +91,14 @@ async def register(
                 )
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
-                detail="Username or email already registered"
+                detail="Username already registered"
             )
         
         # Create new user
         hashed_password = get_password_hash(user_data.password)
-        email_value = user_data.email or f"{user_data.username}@example.local"
 
         new_user = User(
             username=user_data.username,
-            email=email_value,
             password_hash=hashed_password,
             balance=1000.0,  # Starting balance
             registration_ip=client_ip,

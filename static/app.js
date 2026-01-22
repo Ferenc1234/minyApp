@@ -118,7 +118,6 @@ async function handleLogin() {
 
 async function handleRegister() {
     const username = document.getElementById('register-username').value;
-    const email = document.getElementById('register-email').value;
     const password = document.getElementById('register-password').value;
     const errorDiv = document.getElementById('register-error');
     const referralCode = localStorage.getItem('referral_code');
@@ -139,7 +138,6 @@ async function handleRegister() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 username,
-                email: email || null,
                 password,
                 referral_code: referralCode || null
             })
@@ -185,7 +183,6 @@ async function handleLogout() {
     document.getElementById('login-username').value = '';
     document.getElementById('login-password').value = '';
     document.getElementById('register-username').value = '';
-    document.getElementById('register-email').value = '';
     document.getElementById('register-password').value = '';
     
     showAuthScreen();

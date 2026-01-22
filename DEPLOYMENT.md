@@ -103,7 +103,6 @@ kubectl logs -f deployment/mine-app
 ### Users Table
 - `id`: Primary key
 - `username`: Unique username
-- `email`: Unique email
 - `password_hash`: Bcrypt hashed password
 - `balance`: Current player balance (starts at $1000)
 - `total_wagered`: Total amount wagered

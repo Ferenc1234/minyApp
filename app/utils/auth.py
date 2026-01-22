@@ -63,9 +63,3 @@ def get_user_by_username(db: Session, username: str) -> Optional[User]:
 def get_user_by_id(db: Session, user_id: int) -> Optional[User]:
     """Get user by ID"""
     return db.query(User).filter(User.id == user_id).first()
-
-def user_exists(db: Session, username: str, email: str) -> bool:
-    """Check if user exists by username or email"""
-    return db.query(User).filter(
-        (User.username == username) | (User.email == email)
-    ).first() is not None

@@ -10,7 +10,6 @@ curl -X POST http://localhost:8000/api/auth/register \
   -H "Content-Type: application/json" \
   -d '{
     "username": "testuser",
-    "email": "test@example.com",
     "password": "testpassword123"
   }'
 ```
@@ -107,7 +106,7 @@ Features:
 1. **Registration**
    - Go to http://localhost:8000
    - Click "Register" tab
-   - Fill in username, email, password
+  - Fill in username and password
    - Should redirect to game screen
 
 2. **Game Creation**
@@ -180,7 +179,6 @@ class GameUser(HttpUser):
         # Register and login
         response = self.client.post("/api/auth/register", json={
             "username": f"user_{random.randint(1, 10000)}",
-            "email": f"user_{random.randint(1, 10000)}@example.com",
             "password": "testpass123"
         })
         if response.status_code == 200:

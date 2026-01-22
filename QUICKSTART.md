@@ -61,7 +61,7 @@ python main.py
 ## 🎮 How to Play
 
 1. **Register/Login**
-   - Create account with username, email, password
+   - Create account with username and password
    - Login with credentials
 
 2. **Start Game**
@@ -92,7 +92,7 @@ Access interactive docs: **http://localhost:8000/docs**
 ```bash
 curl -X POST http://localhost:8000/api/auth/register \
   -H "Content-Type: application/json" \
-  -d '{"username":"user","email":"user@example.com","password":"pass123"}'
+   -d '{"username":"user","password":"pass123"}'
 ```
 
 ### Login

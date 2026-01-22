@@ -19,7 +19,7 @@ Full-stack gambling mine game application successfully created with all requeste
 ## 🎯 Core Features Implemented
 
 ### 1. ✅ User Management
-- User registration with email validation
+- User registration with username/password only
 - Secure JWT authentication
 - Bcrypt password hashing
 - User profile management
@@ -234,8 +234,8 @@ kubectl port-forward svc/mine-app 8000:80
 
 ## 💾 Database Schema
 
-### Users Table (11 columns)
-- id, username, email, password_hash
+### Users Table (10 columns)
+- id, username, password_hash
 - balance, total_wagered, total_won, total_games
 - created_at, updated_at, is_active
 
