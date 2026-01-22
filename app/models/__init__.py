@@ -22,6 +22,7 @@ class User(Base):
     total_wagered = Column(Float, default=0.0, nullable=False)
     total_won = Column(Float, default=0.0, nullable=False)
     total_games = Column(Integer, default=0, nullable=False)
+    referral_count = Column(Integer, default=0, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     is_active = Column(Boolean, default=True, nullable=False)

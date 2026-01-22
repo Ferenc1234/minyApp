@@ -56,25 +56,11 @@ async def register(
 
         # Enforce single account per device/IP (disabled - fields removed from schema)
 
-        referral_invite = None
+        inviter = None
         if user_data.referral_code:
-            referral_invite = db.query(ReferralInvite).filter(
-                ReferralInvite.code == user_data.referral_code,
-                ReferralInvite.is_active == True,
-                ReferralInvite.claimed_by_user_id == None
+            inviter = db.query(User).filter(
+                User.username == user_data.referral_code
             ).first()
-
-            if not referral_invite:
-                raise HTTPException(
-                    status_code=status.HTTP_400_BAD_REQUEST,
-                    detail="Invalid or already used referral code"
-                )
-
-            if referral_invite.clicks < 1:
-                raise HTTPException(
-                    status_code=status.HTTP_400_BAD_REQUEST,
-                    detail="Referral link must be clicked before registration"
-                )
         
         # Create new user
         hashed_password = get_password_hash(user_data.password)
@@ -89,14 +75,8 @@ async def register(
         db.commit()
         db.refresh(new_user)
 
-        if referral_invite:
-            inviter = db.query(User).filter(User.id == referral_invite.inviter_id).first()
-            if inviter:
-                inviter.balance += referral_invite.reward_amount
-                inviter.total_won += referral_invite.reward_amount
-            referral_invite.claimed_by_user_id = new_user.id
-            referral_invite.claimed_at = datetime.utcnow()
-            referral_invite.is_active = False
+        if inviter and inviter.id != new_user.id:
+            inviter.referral_count += 1
             db.commit()
         
         # Create token
