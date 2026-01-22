@@ -40,6 +40,31 @@ document.addEventListener('DOMContentLoaded', () => {
     renderMineGrid();
 });
 
+// Helper to extract meaningful error messages from API responses
+async function getErrorMessage(response, fallbackMessage) {
+    let message = fallbackMessage;
+    try {
+        const data = await response.json();
+
+        if (typeof data.detail === 'string') {
+            message = data.detail;
+        } else if (Array.isArray(data.detail) && data.detail.length > 0) {
+            const first = data.detail[0];
+            if (typeof first === 'string') {
+                message = first;
+            } else if (first && typeof first.msg === 'string') {
+                message = first.msg;
+            }
+        } else if (typeof data.message === 'string') {
+            message = data.message;
+        }
+    } catch (e) {
+        // If parsing fails, fall back to the provided message
+    }
+
+    return message;
+}
+
 // Auth Functions
 async function handleLogin() {
     const username = document.getElementById('login-username').value;
@@ -59,8 +84,8 @@ async function handleLogin() {
         });
         
         if (!response.ok) {
-            const data = await response.json();
-            throw new Error(data.detail || 'Login failed');
+            const message = await getErrorMessage(response, 'Login failed');
+            throw new Error(message);
         }
         
         const data = await response.json();
@@ -102,8 +127,8 @@ async function handleRegister() {
         });
         
         if (!response.ok) {
-            const data = await response.json();
-            throw new Error(data.detail || 'Registration failed');
+            const message = await getErrorMessage(response, 'Registration failed');
+            throw new Error(message);
         }
         
         const data = await response.json();
@@ -200,8 +225,8 @@ async function startGame() {
         });
         
         if (!response.ok) {
-            const data = await response.json();
-            throw new Error(data.detail || 'Failed to create game');
+            const message = await getErrorMessage(response, 'Failed to create game');
+            throw new Error(message);
         }
         
         currentGame = await response.json();
@@ -234,8 +259,8 @@ async function clickCell(row, col) {
         });
         
         if (!response.ok) {
-            const data = await response.json();
-            throw new Error(data.detail || 'Click failed');
+            const message = await getErrorMessage(response, 'Click failed');
+            throw new Error(message);
         }
         
         const result = await response.json();
@@ -274,8 +299,8 @@ async function claimPrize() {
         });
         
         if (!response.ok) {
-            const data = await response.json();
-            throw new Error(data.detail || 'Failed to claim prize');
+            const message = await getErrorMessage(response, 'Failed to claim prize');
+            throw new Error(message);
         }
         
         const result = await response.json();

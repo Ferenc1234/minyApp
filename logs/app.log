@@ -272,3 +272,346 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2026-01-22 07:00:03 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
 
 (Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:01:04 - root - INFO - Starting up application
+2026-01-22 07:01:04 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:01:04 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:02:05 - root - INFO - Starting up application
+2026-01-22 07:02:05 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:02:05 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:03:07 - root - INFO - Starting up application
+2026-01-22 07:03:07 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:03:07 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:04:08 - root - INFO - Starting up application
+2026-01-22 07:04:08 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:04:08 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:05:09 - root - INFO - Starting up application
+2026-01-22 07:05:09 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:05:09 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:06:10 - root - INFO - Starting up application
+2026-01-22 07:06:10 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:06:10 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:07:11 - root - INFO - Starting up application
+2026-01-22 07:07:11 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:07:11 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:08:13 - root - INFO - Starting up application
+2026-01-22 07:08:13 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:08:13 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:09:14 - root - INFO - Starting up application
+2026-01-22 07:09:14 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:09:14 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:10:15 - root - INFO - Starting up application
+2026-01-22 07:10:15 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:10:15 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:11:16 - root - INFO - Starting up application
+2026-01-22 07:11:16 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:11:16 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:12:17 - root - INFO - Starting up application
+2026-01-22 07:12:17 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:12:17 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:13:18 - root - INFO - Starting up application
+2026-01-22 07:13:18 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:13:18 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:14:19 - root - INFO - Starting up application
+2026-01-22 07:14:19 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:14:19 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:15:20 - root - INFO - Starting up application
+2026-01-22 07:15:20 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:15:20 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:16:21 - root - INFO - Starting up application
+2026-01-22 07:16:21 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:16:21 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:17:22 - root - INFO - Starting up application
+2026-01-22 07:17:22 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:17:22 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:18:23 - root - INFO - Starting up application
+2026-01-22 07:18:23 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:18:23 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:19:24 - root - INFO - Starting up application
+2026-01-22 07:19:24 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:19:24 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:20:25 - root - INFO - Starting up application
+2026-01-22 07:20:25 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:20:25 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:21:26 - root - INFO - Starting up application
+2026-01-22 07:21:27 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:21:27 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:22:28 - root - INFO - Starting up application
+2026-01-22 07:22:28 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:22:28 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:23:29 - root - INFO - Starting up application
+2026-01-22 07:23:29 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:23:29 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:24:30 - root - INFO - Starting up application
+2026-01-22 07:24:30 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:24:30 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:25:31 - root - INFO - Starting up application
+2026-01-22 07:25:31 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:25:31 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:26:32 - root - INFO - Starting up application
+2026-01-22 07:26:32 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:26:32 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:27:33 - root - INFO - Starting up application
+2026-01-22 07:27:33 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:27:33 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:28:34 - root - INFO - Starting up application
+2026-01-22 07:28:34 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:28:34 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:29:35 - root - INFO - Starting up application
+2026-01-22 07:29:35 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:29:35 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:30:36 - root - INFO - Starting up application
+2026-01-22 07:30:36 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:30:36 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:31:37 - root - INFO - Starting up application
+2026-01-22 07:31:37 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:31:37 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:32:38 - root - INFO - Starting up application
+2026-01-22 07:32:38 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:32:38 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:33:39 - root - INFO - Starting up application
+2026-01-22 07:33:39 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:33:39 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:34:40 - root - INFO - Starting up application
+2026-01-22 07:34:40 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:34:40 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:35:41 - root - INFO - Starting up application
+2026-01-22 07:35:41 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:35:41 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:36:43 - root - INFO - Starting up application
+2026-01-22 07:36:43 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:36:43 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:37:44 - root - INFO - Starting up application
+2026-01-22 07:37:44 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:37:44 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:38:45 - root - INFO - Starting up application
+2026-01-22 07:38:45 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:38:45 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:39:46 - root - INFO - Starting up application
+2026-01-22 07:39:46 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:39:46 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:40:47 - root - INFO - Starting up application
+2026-01-22 07:40:47 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:40:47 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:41:48 - root - INFO - Starting up application
+2026-01-22 07:41:48 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:41:48 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:42:49 - root - INFO - Starting up application
+2026-01-22 07:42:49 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:42:49 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:43:51 - root - INFO - Starting up application
+2026-01-22 07:43:51 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:43:51 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:44:52 - root - INFO - Starting up application
+2026-01-22 07:44:52 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:44:52 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:45:53 - root - INFO - Starting up application
+2026-01-22 07:45:53 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:45:53 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:46:54 - root - INFO - Starting up application
+2026-01-22 07:46:54 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:46:54 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:47:55 - root - INFO - Starting up application
+2026-01-22 07:47:55 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:47:55 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:48:56 - root - INFO - Starting up application
+2026-01-22 07:48:56 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:48:56 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:49:57 - root - INFO - Starting up application
+2026-01-22 07:49:57 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:49:57 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
