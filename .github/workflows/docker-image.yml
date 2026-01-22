@@ -30,13 +30,15 @@ jobs:
         with:
           context: .
           push: true
+          # NOTE: ghcr requires image repository names to be lowercase.
+          # We hardcode the lowercased image path to avoid case issues.
           tags: |
-            ghcr.io/${{ github.repository }}:latest
-            ghcr.io/${{ github.repository }}:${{ github.sha }}
+            ghcr.io/ferenc1234/minyapp:latest
+            ghcr.io/ferenc1234/minyapp:${{ github.sha }}
           file: ./Dockerfile
 
       - name: Show resulting image tags
         run: |
           echo "Pushed image tags:"
-          echo "  ghcr.io/${GITHUB_REPOSITORY}:latest"
-          echo "  ghcr.io/${GITHUB_REPOSITORY}:${GITHUB_SHA}"
+          echo "  ghcr.io/ferenc1234/minyapp:latest"
+          echo "  ghcr.io/ferenc1234/minyapp:${GITHUB_SHA}"

@@ -258,3 +258,17 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2026-01-22 06:58:01 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
 
 (Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:59:02 - root - INFO - Starting up application
+2026-01-22 06:59:02 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:59:02 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:00:03 - root - INFO - Starting up application
+2026-01-22 07:00:03 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 07:00:03 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
