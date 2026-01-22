@@ -75,10 +75,6 @@ async def register(
                     status_code=status.HTTP_400_BAD_REQUEST,
                     detail="Referral link must be clicked before registration"
                 )
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail="Username already registered"
-            )
         
         # Create new user
         hashed_password = get_password_hash(user_data.password)
