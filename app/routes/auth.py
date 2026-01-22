@@ -54,21 +54,7 @@ async def register(
                 context={'username': user_data.username}
             )
 
-        # Enforce single account per device/IP
-        if client_ip:
-            ip_user = db.query(User).filter(User.registration_ip == client_ip).first()
-            if ip_user:
-                raise HTTPException(
-                    status_code=status.HTTP_400_BAD_REQUEST,
-                    detail="Only one account can be registered per computer"
-                )
-
-        device_user = db.query(User).filter(User.registration_device_id == device_id).first()
-        if device_user:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail="Only one account can be registered per computer"
-            )
+        # Enforce single account per device/IP (disabled - fields removed from schema)
 
         referral_invite = None
         if user_data.referral_code:
@@ -100,9 +86,7 @@ async def register(
         new_user = User(
             username=user_data.username,
             password_hash=hashed_password,
-            balance=1000.0,  # Starting balance
-            registration_ip=client_ip,
-            registration_device_id=device_id
+            balance=1000.0  # Starting balance
         )
         
         db.add(new_user)
