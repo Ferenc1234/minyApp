@@ -6,6 +6,8 @@ const API_BASE = '/api';
 
 // Initialization
 document.addEventListener('DOMContentLoaded', () => {
+    handleReferralLanding();
+
     // Check if user is already logged in
     const token = localStorage.getItem('token');
     if (token) {
@@ -39,6 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
     setSettingsState(false);
     renderMineGrid();
 });
+
+function handleReferralLanding() {
+    const params = new URLSearchParams(window.location.search);
+    const refCode = params.get('ref');
+
+    if (refCode) {
+        localStorage.setItem('referral_code', refCode);
+        fetch(`${API_BASE}/referrals/track?code=${encodeURIComponent(refCode)}`)
+            .catch(() => {});
+    }
+}
 
 // Helper to extract meaningful error messages from API responses
 async function getErrorMessage(response, fallbackMessage) {
@@ -108,6 +121,7 @@ async function handleRegister() {
     const email = document.getElementById('register-email').value;
     const password = document.getElementById('register-password').value;
     const errorDiv = document.getElementById('register-error');
+    const referralCode = localStorage.getItem('referral_code');
     
     if (!username || !password) {
         showError(errorDiv, 'Please fill in username and password');
@@ -123,7 +137,12 @@ async function handleRegister() {
         const response = await fetch(`${API_BASE}/auth/register`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, email: email || null, password })
+            body: JSON.stringify({
+                username,
+                email: email || null,
+                password,
+                referral_code: referralCode || null
+            })
         });
         
         if (!response.ok) {
@@ -136,6 +155,7 @@ async function handleRegister() {
         currentUser = data.user;
         
         localStorage.setItem('token', apiToken);
+        localStorage.removeItem('referral_code');
         
         showGameScreen();
         updateUserDisplay();
@@ -556,7 +576,63 @@ function updateUserDisplay() {
     if (!currentUser) return;
     
     document.getElementById('username-display').textContent = currentUser.username;
-    document.getElementById('balance-display').textContent = currentUser.balance.toFixed(2);
+    const balanceDisplay = document.getElementById('balance-display');
+    if (balanceDisplay) {
+        balanceDisplay.textContent = currentUser.balance.toFixed(2);
+    }
+    const balanceMain = document.getElementById('balance-main');
+    if (balanceMain) {
+        balanceMain.textContent = currentUser.balance.toFixed(2);
+    }
+}
+
+async function createReferralLink() {
+    const statusEl = document.getElementById('affiliate-link-status');
+    const inputEl = document.getElementById('affiliate-link-input');
+
+    if (!apiToken) {
+        if (statusEl) statusEl.textContent = 'Please log in to generate a link.';
+        return;
+    }
+
+    try {
+        const response = await fetch(`${API_BASE}/referrals/create`, {
+            method: 'POST',
+            headers: getAuthHeaders()
+        });
+
+        if (!response.ok) {
+            const message = await getErrorMessage(response, 'Failed to create referral link');
+            throw new Error(message);
+        }
+
+        const data = await response.json();
+        if (inputEl) {
+            inputEl.value = data.url;
+        }
+        if (statusEl) {
+            statusEl.textContent = `Invite link ready · $${data.reward_amount.toFixed(0)} per registration`;
+        }
+    } catch (error) {
+        if (statusEl) statusEl.textContent = error.message;
+    }
+}
+
+function copyAffiliateLink() {
+    const inputEl = document.getElementById('affiliate-link-input');
+    const statusEl = document.getElementById('affiliate-link-status');
+    if (!inputEl || !inputEl.value) {
+        if (statusEl) statusEl.textContent = 'Generate a link first.';
+        return;
+    }
+
+    inputEl.select();
+    inputEl.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(inputEl.value).then(() => {
+        if (statusEl) statusEl.textContent = 'Link copied to clipboard.';
+    }).catch(() => {
+        if (statusEl) statusEl.textContent = 'Copy failed. Please copy manually.';
+    });
 }
 
 async function loadUserProfile() {

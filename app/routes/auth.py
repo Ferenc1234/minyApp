@@ -1,10 +1,10 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Request, Response
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.orm import Session
-from datetime import timedelta
+from datetime import timedelta, datetime
 from app.database import get_db
 from app.schemas import UserCreate, UserLogin, Token, UserResponse
-from app.models import User
+from app.models import User, ReferralInvite
 from app.utils import (
     get_password_hash, 
     verify_password, 
@@ -19,10 +19,29 @@ router = APIRouter(prefix="/api/auth", tags=["auth"])
 logger = logging.getLogger(__name__)
 security = HTTPBearer()
 
+def get_client_ip(request: Request) -> str | None:
+    forwarded = request.headers.get("x-forwarded-for")
+    if forwarded:
+        return forwarded.split(",")[0].strip()
+    if request.client:
+        return request.client.host
+    return None
+
 @router.post("/register", response_model=Token)
-async def register(user_data: UserCreate, db: Session = Depends(get_db)):
+async def register(
+    user_data: UserCreate,
+    request: Request,
+    response: Response,
+    db: Session = Depends(get_db)
+):
     """Register new user"""
     try:
+        client_ip = get_client_ip(request)
+        device_id = request.cookies.get("device_id")
+        if not device_id:
+            import uuid
+            device_id = uuid.uuid4().hex
+
         # Check if user exists
         if user_data.email:
             existing_user = db.query(User).filter(
@@ -39,6 +58,42 @@ async def register(user_data: UserCreate, db: Session = Depends(get_db)):
                 "DUPLICATE_USER",
                 context={'username': user_data.username}
             )
+
+        # Enforce single account per device/IP
+        if client_ip:
+            ip_user = db.query(User).filter(User.registration_ip == client_ip).first()
+            if ip_user:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Only one account can be registered per computer"
+                )
+
+        device_user = db.query(User).filter(User.registration_device_id == device_id).first()
+        if device_user:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Only one account can be registered per computer"
+            )
+
+        referral_invite = None
+        if user_data.referral_code:
+            referral_invite = db.query(ReferralInvite).filter(
+                ReferralInvite.code == user_data.referral_code,
+                ReferralInvite.is_active == True,
+                ReferralInvite.claimed_by_user_id == None
+            ).first()
+
+            if not referral_invite:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Invalid or already used referral code"
+                )
+
+            if referral_invite.clicks < 1:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail="Referral link must be clicked before registration"
+                )
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail="Username or email already registered"
@@ -52,18 +107,38 @@ async def register(user_data: UserCreate, db: Session = Depends(get_db)):
             username=user_data.username,
             email=email_value,
             password_hash=hashed_password,
-            balance=1000.0  # Starting balance
+            balance=1000.0,  # Starting balance
+            registration_ip=client_ip,
+            registration_device_id=device_id
         )
         
         db.add(new_user)
         db.commit()
         db.refresh(new_user)
+
+        if referral_invite:
+            inviter = db.query(User).filter(User.id == referral_invite.inviter_id).first()
+            if inviter:
+                inviter.balance += referral_invite.reward_amount
+                inviter.total_won += referral_invite.reward_amount
+            referral_invite.claimed_by_user_id = new_user.id
+            referral_invite.claimed_at = datetime.utcnow()
+            referral_invite.is_active = False
+            db.commit()
         
         # Create token
         access_token = create_access_token(data={"sub": new_user.username})
         
         log_user_action("user_registration", new_user.id)
         
+        response.set_cookie(
+            key="device_id",
+            value=device_id,
+            httponly=True,
+            samesite="lax",
+            max_age=60 * 60 * 24 * 365
+        )
+
         return {
             "access_token": access_token,
             "token_type": "bearer",

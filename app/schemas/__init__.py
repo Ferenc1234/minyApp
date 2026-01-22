@@ -9,6 +9,7 @@ class UserBase(BaseModel):
 
 class UserCreate(UserBase):
     password: str = Field(..., min_length=8, max_length=100)
+    referral_code: Optional[str] = Field(default=None, max_length=32)
 
 class UserLogin(BaseModel):
     username: str
@@ -97,3 +98,11 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     username: Optional[str] = None
+
+class ReferralLink(BaseModel):
+    code: str
+    url: str
+    reward_amount: float
+    clicks: int
+    created_at: datetime
+    claimed: bool

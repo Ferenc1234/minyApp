@@ -9,6 +9,7 @@ from pathlib import Path
 from app.database import init_db, get_settings
 from app.utils.logger import setup_logging
 from app.routes import auth, games, users, casino
+from app.routes import referrals
 
 # Setup logging
 logger = setup_logging()
@@ -44,6 +45,7 @@ app.include_router(auth.router)
 app.include_router(games.router)
 app.include_router(users.router)
 app.include_router(casino.router)
+app.include_router(referrals.router)
 
 @app.on_event("startup")
 async def startup_event():
