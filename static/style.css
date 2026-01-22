@@ -174,7 +174,7 @@ body {
 /* Account Panel */
 .account-panel {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: minmax(240px, 360px) 1fr;
     gap: 24px;
     padding: 24px 40px 10px;
     align-items: center;
@@ -207,6 +207,27 @@ body {
     color: rgba(226, 232, 240, 0.7);
 }
 
+.btn-toggle-add {
+    margin-top: 16px;
+    width: 100%;
+}
+
+.add-money-actions {
+    display: none;
+    margin-top: 12px;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.add-money-actions.open {
+    display: flex;
+}
+
+.add-money-actions .btn-primary,
+.add-money-actions .btn-secondary {
+    width: 100%;
+}
+
 .account-actions {
     background: rgba(15, 23, 42, 0.6);
     border-radius: 16px;
@@ -220,13 +241,6 @@ body {
 
 .invite-btn {
     margin-top: 0;
-}
-
-.action-buttons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 10px;
-    margin: 12px 0 16px;
 }
 
 .btn-secondary {

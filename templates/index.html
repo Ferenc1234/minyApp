@@ -56,17 +56,18 @@
                         <p class="account-label">Account Value</p>
                         <div class="account-value">$<span id="balance-main">0.00</span></div>
                         <p class="account-sub">Available balance</p>
+                        <button onclick="toggleAddMoney()" class="btn-primary btn-toggle-add">Add money</button>
+                        <div id="add-money-actions" class="add-money-actions">
+                            <button onclick="createReferralLink()" class="btn-primary invite-btn">Invite friend</button>
+                            <button class="btn-secondary btn-disabled" disabled>Coming soon</button>
+                            <button class="btn-secondary btn-disabled" disabled>Coming soon</button>
+                            <button class="btn-secondary btn-disabled" disabled>Coming soon</button>
+                        </div>
                     </div>
                     <div class="account-actions">
-                        <h3>Add money</h3>
-                        <button onclick="createReferralLink()" class="btn-primary invite-btn">Invite friend • $500</button>
-                        <div class="action-buttons">
-                            <button class="btn-secondary btn-disabled" disabled>Coming soon • $1,000</button>
-                            <button class="btn-secondary btn-disabled" disabled>Coming soon • $2,500</button>
-                            <button class="btn-secondary btn-disabled" disabled>Coming soon • $5,000</button>
-                        </div>
+                        <h3>Invite friends</h3>
                         <div class="affiliate-link">
-                            <label for="affiliate-link-input">Your affiliate link</label>
+                            <label for="affiliate-link-input">Your referral link</label>
                             <div class="affiliate-link-row">
                                 <input id="affiliate-link-input" type="text" readonly placeholder="Click 'Invite friend' to generate a link" />
                                 <button onclick="copyAffiliateLink()" class="btn-small">Copy</button>

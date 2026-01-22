@@ -164,6 +164,12 @@ async function handleRegister() {
     }
 }
 
+function toggleAddMoney() {
+    const actions = document.getElementById('add-money-actions');
+    if (!actions) return;
+    actions.classList.toggle('open');
+}
+
 async function handleLogout() {
     try {
         await fetch(`${API_BASE}/auth/logout`, {
@@ -607,8 +613,19 @@ async function createReferralLink() {
         if (inputEl) {
             inputEl.value = data.url;
         }
-        if (statusEl) {
-            statusEl.textContent = `Invite link ready · $${data.reward_amount.toFixed(0)} per registration`;
+        if (data.url && navigator.clipboard) {
+            try {
+                await navigator.clipboard.writeText(data.url);
+                if (statusEl) {
+                    statusEl.textContent = 'Link copied. You get $500 per registration.';
+                }
+            } catch (error) {
+                if (statusEl) {
+                    statusEl.textContent = 'Link ready. Copy it to share and earn $500 per registration.';
+                }
+            }
+        } else if (statusEl) {
+            statusEl.textContent = 'Link ready. Copy it to share and earn $500 per registration.';
         }
     } catch (error) {
         if (statusEl) statusEl.textContent = error.message;
@@ -626,7 +643,7 @@ function copyAffiliateLink() {
     inputEl.select();
     inputEl.setSelectionRange(0, 99999);
     navigator.clipboard.writeText(inputEl.value).then(() => {
-        if (statusEl) statusEl.textContent = 'Link copied to clipboard.';
+        if (statusEl) statusEl.textContent = 'Link copied. You get $500 per registration.';
     }).catch(() => {
         if (statusEl) statusEl.textContent = 'Copy failed. Please copy manually.';
     });
