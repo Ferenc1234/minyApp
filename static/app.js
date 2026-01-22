@@ -109,8 +109,8 @@ async function handleRegister() {
     const password = document.getElementById('register-password').value;
     const errorDiv = document.getElementById('register-error');
     
-    if (!username || !email || !password) {
-        showError(errorDiv, 'Please fill in all fields');
+    if (!username || !password) {
+        showError(errorDiv, 'Please fill in username and password');
         return;
     }
     
@@ -123,7 +123,7 @@ async function handleRegister() {
         const response = await fetch(`${API_BASE}/auth/register`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, email, password })
+            body: JSON.stringify({ username, email: email || null, password })
         });
         
         if (!response.ok) {

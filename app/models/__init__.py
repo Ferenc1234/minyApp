@@ -17,7 +17,7 @@ class User(Base):
     
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String(50), unique=True, index=True, nullable=False)
-    email = Column(String(100), unique=True, index=True, nullable=False)
+    email = Column(String(100), unique=True, index=True, nullable=True)
     password_hash = Column(String(255), nullable=False)
     balance = Column(Float, default=1000.0, nullable=False)
     total_wagered = Column(Float, default=0.0, nullable=False)

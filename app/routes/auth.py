@@ -24,9 +24,14 @@ async def register(user_data: UserCreate, db: Session = Depends(get_db)):
     """Register new user"""
     try:
         # Check if user exists
-        existing_user = db.query(User).filter(
-            (User.username == user_data.username) | (User.email == user_data.email)
-        ).first()
+        if user_data.email:
+            existing_user = db.query(User).filter(
+                (User.username == user_data.username) | (User.email == user_data.email)
+            ).first()
+        else:
+            existing_user = db.query(User).filter(
+                User.username == user_data.username
+            ).first()
         
         if existing_user:
             log_error(
@@ -41,9 +46,11 @@ async def register(user_data: UserCreate, db: Session = Depends(get_db)):
         
         # Create new user
         hashed_password = get_password_hash(user_data.password)
+        email_value = user_data.email or f"{user_data.username}@example.local"
+
         new_user = User(
             username=user_data.username,
-            email=user_data.email,
+            email=email_value,
             password_hash=hashed_password,
             balance=1000.0  # Starting balance
         )
