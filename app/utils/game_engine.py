@@ -73,12 +73,8 @@ class MineField:
 class GameEngine:
     """Handles game logic and reward calculations"""
     
-    # Reward multipliers based on difficulty (grid_size and mines_count ratio)
-    MULTIPLIER_BASE = {
-        3: {1: 1.5, 2: 1.8, 3: 2.5},    # 3x3 grid
-        4: {2: 1.3, 4: 1.6, 6: 2.0},    # 4x4 grid
-        5: {3: 1.2, 5: 1.5, 8: 1.8}     # 5x5 grid
-    }
+    # Global house edge factor (< 1.0 means casino advantage)
+    HOUSE_EDGE = 0.97  # ~3% casino edge on otherwise fair odds
     
     @staticmethod
     def create_minefield(grid_size: int, mines_count: int) -> Tuple[List[List[int]], Dict]:
@@ -90,11 +86,34 @@ class GameEngine:
     
     @staticmethod
     def get_multiplier(grid_size: int, mines_count: int, safe_clicks: int) -> float:
-        """Calculate current multiplier based on safe clicks"""
-        base_multiplier = GameEngine.MULTIPLIER_BASE.get(grid_size, {}).get(mines_count, 1.0)
-        
-        # Increase multiplier slightly with each safe click
-        multiplier = base_multiplier * (1 + (safe_clicks * 0.15))
+        """Calculate current multiplier based on safe clicks with a house edge.
+
+        We approximate a fair multiplier as the product of 1 / P(success)
+        for each safe click without replacement, then apply HOUSE_EDGE
+        (< 1) so the expected return is slightly negative for the player.
+        """
+        total_cells = grid_size * grid_size
+        safe_total = total_cells - mines_count
+
+        if safe_clicks <= 0 or safe_total <= 0:
+            return 1.0
+
+        multiplier = 1.0
+        # For each safe click so far, multiply by the inverse of the
+        # probability that that click was safe.
+        for k in range(safe_clicks):
+            safe_remaining = safe_total - k
+            total_remaining = total_cells - k
+            if safe_remaining <= 0 or total_remaining <= 0:
+                break
+            prob_safe = safe_remaining / total_remaining
+            if prob_safe <= 0:
+                break
+            fair_factor = 1.0 / prob_safe
+            multiplier *= fair_factor
+
+        # Apply casino edge
+        multiplier *= GameEngine.HOUSE_EDGE
         return round(multiplier, 2)
     
     @staticmethod
@@ -167,6 +186,16 @@ class GameEngine:
         if is_mine:
             game.status = GameStatus.LOST
             game.prize_amount = 0
+
+            # Reveal entire board so frontend can freeze final state
+            for r in range(game.grid_size):
+                for c in range(game.grid_size):
+                    key = f"{r},{c}"
+                    if key not in revealed_cells:
+                        cell_is_mine = bool(grid[str(r)].get(str(c), 0))
+                        revealed_cells[key] = cell_is_mine
+            game.revealed_cells = revealed_cells
+
             return {
                 'hit_mine': True,
                 'safe_clicks': len([v for v in game.revealed_cells.values() if not v]),

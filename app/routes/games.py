@@ -187,9 +187,21 @@ async def claim_prize(
                 detail=f"Game is already {game.status}"
             )
         
+        # Reveal full board so frontend can show final state
+        import json
+        grid = json.loads(game.grid_state) if isinstance(game.grid_state, str) else game.grid_state
+        revealed_cells = game.revealed_cells.copy() if isinstance(game.revealed_cells, dict) else {}
+        for r in range(game.grid_size):
+            for c in range(game.grid_size):
+                key = f"{r},{c}"
+                if key not in revealed_cells:
+                    cell_is_mine = bool(grid[str(r)].get(str(c), 0))
+                    revealed_cells[key] = cell_is_mine
+        game.revealed_cells = revealed_cells
+
         # Claim prize
         game.status = GameStatus.CLAIMED
-        
+
         # Update user balance and stats
         current_user.balance += game.prize_amount
         current_user.total_won += game.prize_amount

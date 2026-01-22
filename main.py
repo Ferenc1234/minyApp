@@ -8,7 +8,7 @@ from pathlib import Path
 
 from app.database import init_db, get_settings
 from app.utils.logger import setup_logging
-from app.routes import auth, games, users
+from app.routes import auth, games, users, casino
 
 # Setup logging
 logger = setup_logging()
@@ -29,8 +29,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Paths for static files and templates (code root dir)
+base_path = Path(__file__).resolve().parent
+static_path = base_path / "static"
+templates_path = base_path / "templates"
+index_file = templates_path / "index.html"
+
 # Mount static files
-static_path = Path(__file__).parent.parent / "static"
 if static_path.exists():
     app.mount("/static", StaticFiles(directory=str(static_path)), name="static")
 
@@ -38,6 +43,7 @@ if static_path.exists():
 app.include_router(auth.router)
 app.include_router(games.router)
 app.include_router(users.router)
+app.include_router(casino.router)
 
 @app.on_event("startup")
 async def startup_event():
@@ -57,7 +63,9 @@ async def shutdown_event():
 
 @app.get("/")
 async def root():
-    """Root endpoint"""
+    """Serve main SPA or fallback to API info JSON"""
+    if index_file.exists():
+        return FileResponse(str(index_file))
     return {
         "message": "Mine Gambling Game API",
         "docs": "/docs",

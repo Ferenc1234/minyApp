@@ -15,6 +15,29 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         showAuthScreen();
     }
+
+    // Live update grid preview when settings change (before game starts)
+    const gridSizeSelect = document.getElementById('grid-size');
+    const minesInput = document.getElementById('mines-count');
+    const betInput = document.getElementById('bet-amount');
+
+    const settingsHandler = () => {
+        handleSettingsChange();
+    };
+
+    if (gridSizeSelect) {
+        gridSizeSelect.addEventListener('change', settingsHandler);
+    }
+    if (minesInput) {
+        minesInput.addEventListener('change', settingsHandler);
+    }
+    if (betInput) {
+        betInput.addEventListener('change', settingsHandler);
+    }
+
+    // Initial UI state
+    setSettingsState(false);
+    renderMineGrid();
 });
 
 // Auth Functions
@@ -124,12 +147,35 @@ async function handleLogout() {
 }
 
 // Game Functions
+async function handlePrimaryGameAction() {
+    if (currentGame && currentGame.status === 'active') {
+        await claimPrize();
+    } else {
+        await startGame();
+    }
+}
+
 async function startGame() {
     const betAmount = parseFloat(document.getElementById('bet-amount').value);
     const gridSize = parseInt(document.getElementById('grid-size').value);
     const minesCount = parseInt(document.getElementById('mines-count').value);
     const errorDiv = document.getElementById('setup-error');
     
+    // Ensure we have an up-to-date user profile (especially after page refresh)
+    if (!currentUser) {
+        await loadUserProfile();
+    }
+
+    if (!currentUser) {
+        showError(errorDiv, 'Please log in again to start a game.');
+        return;
+    }
+
+    if (isNaN(betAmount) || betAmount <= 0) {
+        showError(errorDiv, 'Please enter a valid bet amount.');
+        return;
+    }
+
     // Validation
     const totalCells = gridSize * gridSize;
     if (minesCount >= totalCells) {
@@ -159,6 +205,13 @@ async function startGame() {
         }
         
         currentGame = await response.json();
+
+        // Refresh user profile so balance reflects the placed bet
+        await loadUserProfile();
+
+        // Lock settings and switch primary button to claim mode
+        setSettingsState(true);
+
         showPlayScreen();
         renderMineGrid();
         updateGameInfo();
@@ -200,7 +253,9 @@ async function clickCell(row, col) {
         showGameMessage(result.message);
         
         if (result.status !== 'active') {
-            showGameOver(result);
+            // Game ended: unlock settings and keep board visible/frozen
+            setSettingsState(false);
+            renderMineGrid();
         }
         
     } catch (error) {
@@ -230,12 +285,13 @@ async function claimPrize() {
         currentGame.prize_amount = result.prize_amount;
         
         // Update user balance
-        loadUserProfile();
-        
+        await loadUserProfile();
+
+        // Game ended: unlock settings and keep board visible/frozen
+        setSettingsState(false);
+        renderMineGrid();
+
         showGameMessage(result.message);
-        setTimeout(() => {
-            showGameOver(result);
-        }, 1000);
         
     } catch (error) {
         console.error('Claim error:', error);
@@ -271,14 +327,26 @@ function showGameScreen() {
 }
 
 function showSetup() {
+    // Prepare preview state: no active game, grid greyed out, settings enabled
+    currentGame = null;
     hideAllSections();
-    document.getElementById('setup-screen').classList.add('active');
+    document.getElementById('play-screen').classList.add('active');
     document.getElementById('setup-error').classList.remove('show');
+    setSettingsState(false);
+    const gridDiv = document.getElementById('mine-grid');
+    if (gridDiv) {
+        gridDiv.classList.add('disabled');
+    }
+    renderMineGrid();
 }
 
 function showPlayScreen() {
     hideAllSections();
     document.getElementById('play-screen').classList.add('active');
+    const gridDiv = document.getElementById('mine-grid');
+    if (gridDiv) {
+        gridDiv.classList.remove('disabled');
+    }
 }
 
 function showGameOver(result) {
@@ -360,7 +428,30 @@ async function showLeaderboard() {
                 <td>$${user.balance.toFixed(2)}</td>
             `;
         });
-        
+
+        // Append casino stats as a special row at the bottom
+        try {
+            const casinoResp = await fetch(`${API_BASE}/casino/stats`, {
+                headers: getAuthHeaders()
+            });
+            if (casinoResp.ok) {
+                const casino = await casinoResp.json();
+                const row = tbody.insertRow();
+                row.classList.add('casino-row');
+                row.innerHTML = `
+                    <td>-</td>
+                    <td>Casino (House)</td>
+                    <td>-</td>
+                    <td>$${casino.total_wagered.toFixed(2)}</td>
+                    <td>$${casino.total_won.toFixed(2)}</td>
+                    <td>${casino.casino_edge_percent}% edge</td>
+                    <td>$${casino.casino_profit.toFixed(2)}</td>
+                `;
+            }
+        } catch (e) {
+            console.error('Casino stats error:', e);
+        }
+
         document.getElementById('leaderboard-screen').classList.remove('hidden');
         
     } catch (error) {
@@ -370,31 +461,57 @@ async function showLeaderboard() {
 }
 
 function renderMineGrid() {
-    if (!currentGame) return;
-    
     const gridDiv = document.getElementById('mine-grid');
+    if (!gridDiv) return;
     gridDiv.innerHTML = '';
-    gridDiv.className = `mine-grid grid-${currentGame.grid_size}`;
-    
-    for (let row = 0; row < currentGame.grid_size; row++) {
-        for (let col = 0; col < currentGame.grid_size; col++) {
+
+    // Use current game size when active, otherwise preview based on selected grid size
+    const selectedSize = parseInt(document.getElementById('grid-size').value) || 3;
+    const gridSize = currentGame ? currentGame.grid_size : selectedSize;
+
+    const classes = ['mine-grid', `grid-${gridSize}`];
+    if (!currentGame || (currentGame && currentGame.status !== 'active')) {
+        classes.push('disabled');
+    }
+    gridDiv.className = classes.join(' ');
+
+    for (let row = 0; row < gridSize; row++) {
+        for (let col = 0; col < gridSize; col++) {
             const cell = document.createElement('div');
             cell.className = 'cell';
             
-            const cellKey = `${row},${col}`;
-            const isRevealed = currentGame.revealed_cells[cellKey] !== undefined;
-            
-            if (isRevealed) {
-                cell.classList.add('revealed');
-                if (currentGame.revealed_cells[cellKey]) {
-                    cell.classList.add('mine');
-                    cell.textContent = '💣';
+            if (currentGame) {
+                const cellKey = `${row},${col}`;
+                const isRevealed = currentGame.revealed_cells[cellKey] !== undefined;
+                const status = currentGame.status;
+
+                if (status === 'active') {
+                    // Standard in-play behavior: only show revealed cells, others clickable
+                    if (isRevealed) {
+                        cell.classList.add('revealed');
+                        if (currentGame.revealed_cells[cellKey]) {
+                            cell.classList.add('mine');
+                            cell.textContent = '💣';
+                        } else {
+                            cell.classList.add('safe');
+                            cell.textContent = '✓';
+                        }
+                    } else {
+                        cell.onclick = () => clickCell(row, col);
+                    }
                 } else {
-                    cell.classList.add('safe');
-                    cell.textContent = '✓';
+                    // Game finished: reveal full board based on revealed_cells
+                    if (isRevealed) {
+                        cell.classList.add('revealed');
+                        if (currentGame.revealed_cells[cellKey]) {
+                            cell.classList.add('mine');
+                            cell.textContent = '💣';
+                        } else {
+                            cell.classList.add('safe');
+                            cell.textContent = '✓';
+                        }
+                    }
                 }
-            } else {
-                cell.onclick = () => clickCell(row, col);
             }
             
             gridDiv.appendChild(cell);
@@ -431,6 +548,36 @@ async function loadUserProfile() {
     } catch (error) {
         console.error('Profile error:', error);
     }
+}
+
+function setSettingsState(isActiveGame) {
+    const betInput = document.getElementById('bet-amount');
+    const gridSizeSelect = document.getElementById('grid-size');
+    const minesInput = document.getElementById('mines-count');
+    const primaryButton = document.getElementById('primary-game-button');
+
+    if (!betInput || !gridSizeSelect || !minesInput || !primaryButton) return;
+
+    betInput.disabled = isActiveGame;
+    gridSizeSelect.disabled = isActiveGame;
+    minesInput.disabled = isActiveGame;
+
+    primaryButton.textContent = isActiveGame ? 'Claim Prize' : 'Start Game';
+}
+
+function handleSettingsChange() {
+    // If the previous game has finished, clear it and show a fresh preview
+    if (currentGame && currentGame.status !== 'active') {
+        currentGame = null;
+        showGameMessage('');
+    }
+
+    const gridDiv = document.getElementById('mine-grid');
+    if (gridDiv && !currentGame) {
+        gridDiv.classList.add('disabled');
+    }
+
+    renderMineGrid();
 }
 
 function showGameMessage(message) {

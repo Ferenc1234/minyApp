@@ -55,33 +55,8 @@
                 
                 <!-- Main Game Area -->
                 <div id="game-area" class="game-area">
-                    <!-- Setup Screen -->
-                    <div id="setup-screen" class="game-section active">
-                        <h2>New Game</h2>
-                        <div class="setup-form">
-                            <div class="form-group">
-                                <label>Bet Amount: $</label>
-                                <input type="number" id="bet-amount" min="1" max="10000" value="100" />
-                            </div>
-                            <div class="form-group">
-                                <label>Grid Size:</label>
-                                <select id="grid-size">
-                                    <option value="3">3x3</option>
-                                    <option value="4">4x4</option>
-                                    <option value="5">5x5</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Number of Mines:</label>
-                                <input type="number" id="mines-count" min="1" max="20" value="3" />
-                            </div>
-                            <button onclick="startGame()" class="btn-primary btn-large">Start Game</button>
-                            <div id="setup-error" class="error-message"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- Game Playing Screen -->
-                    <div id="play-screen" class="game-section">
+                    <!-- Main Game Screen (grid + bet settings) -->
+                    <div id="play-screen" class="game-section active">
                         <div class="game-info">
                             <div class="info-box">
                                 <p>Bet: $<span id="current-bet">0</span></p>
@@ -89,13 +64,34 @@
                                 <p>Prize: $<span id="current-prize">0</span></p>
                             </div>
                         </div>
-                        
-                        <div id="mine-grid" class="mine-grid"></div>
-                        
-                        <div class="game-actions">
-                            <button onclick="claimPrize()" class="btn-success btn-large">Claim Prize</button>
-                            <button onclick="cancelGame()" class="btn-danger btn-large">Cancel Game</button>
+
+                        <div class="mine-container">
+                            <div id="mine-grid" class="mine-grid"></div>
+
+                            <div class="setup-form setup-inline">
+                                <h2>New Game</h2>
+                                <div class="form-group">
+                                    <label>Bet Amount: $</label>
+                                    <input type="number" id="bet-amount" min="1" max="10000" value="100" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Grid Size:</label>
+                                    <select id="grid-size">
+                                        <option value="3">3x3</option>
+                                        <option value="4">4x4</option>
+                                        <option value="5">5x5</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Number of Mines:</label>
+                                    <input type="number" id="mines-count" min="1" max="20" value="3" />
+                                </div>
+                                <button id="primary-game-button" onclick="handlePrimaryGameAction()" class="btn-primary btn-large">Start Game</button>
+                                <div id="setup-error" class="error-message"></div>
+                            </div>
                         </div>
+
+                        <div class="game-actions"></div>
                         <div id="game-message" class="game-message"></div>
                     </div>
                     

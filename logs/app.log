@@ -21,3 +21,240 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2026-01-15 08:29:23 - app.utils.logger - INFO - User Action: {"action": "user_login", "user_id": 2, "timestamp": "2026-01-15T08:29:23.002404"}
 2026-01-15 08:29:23 - app.utils.logger - ERROR - Error: {"error": "Login failed for user", "error_type": "INVALID_CREDENTIALS", "timestamp": "2026-01-15T08:29:23.220962", "context": {"username": "testuser_40975_26230"}}
 2026-01-15 08:29:23 - app.utils.logger - ERROR - Error: {"error": "Login failed for user", "error_type": "INVALID_CREDENTIALS", "timestamp": "2026-01-15T08:29:23.228900", "context": {"username": "admin' OR '1'='1"}}
+2026-01-20 11:00:08 - root - INFO - Starting up application
+2026-01-20 11:00:08 - app.database - INFO - Database tables created successfully
+2026-01-20 11:00:08 - root - INFO - Database initialized successfully
+2026-01-20 11:02:15 - root - INFO - Shutting down application
+2026-01-20 11:02:17 - root - INFO - Starting up application
+2026-01-20 11:02:17 - app.database - INFO - Database tables created successfully
+2026-01-20 11:02:17 - root - INFO - Database initialized successfully
+2026-01-20 11:03:46 - root - INFO - Shutting down application
+2026-01-20 11:03:48 - root - INFO - Starting up application
+2026-01-20 11:03:48 - app.database - INFO - Database tables created successfully
+2026-01-20 11:03:48 - root - INFO - Database initialized successfully
+2026-01-20 11:04:02 - app.utils.logger - ERROR - Error: {"error": "Login failed for user", "error_type": "INVALID_CREDENTIALS", "timestamp": "2026-01-20T11:04:02.561800", "context": {"username": "fdgfd"}}
+2026-01-20 11:04:18 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-01-20 11:04:18 - app.utils.logger - INFO - User Action: {"action": "user_registration", "user_id": 1, "timestamp": "2026-01-20T11:04:18.403477"}
+2026-01-20 11:04:24 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 1, "timestamp": "2026-01-20T11:04:24.326250", "details": {"bet_amount": 100.0, "grid_size": 4, "mines_count": 3}}
+2026-01-20 11:04:25 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 1, "timestamp": "2026-01-20T11:04:25.789919", "details": {"row": 0, "col": 2, "hit_mine": true, "multiplier": 1.0}}
+2026-01-20 11:04:29 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 2, "timestamp": "2026-01-20T11:04:29.044767", "details": {"bet_amount": 100.0, "grid_size": 4, "mines_count": 3}}
+2026-01-20 11:04:30 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 2, "timestamp": "2026-01-20T11:04:30.024172", "details": {"row": 3, "col": 3, "hit_mine": false, "multiplier": 1.15}}
+2026-01-20 11:04:33 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 2, "timestamp": "2026-01-20T11:04:33.938247", "details": {"row": 2, "col": 1, "hit_mine": false, "multiplier": 1.3}}
+2026-01-20 11:04:36 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 2, "timestamp": "2026-01-20T11:04:36.633690", "details": {"row": 2, "col": 3, "hit_mine": true, "multiplier": 1.3}}
+2026-01-20 11:04:42 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 3, "timestamp": "2026-01-20T11:04:42.548762", "details": {"bet_amount": 100.0, "grid_size": 4, "mines_count": 3}}
+2026-01-20 11:04:43 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 3, "timestamp": "2026-01-20T11:04:43.724078", "details": {"row": 2, "col": 1, "hit_mine": false, "multiplier": 1.15}}
+2026-01-20 11:04:45 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 3, "timestamp": "2026-01-20T11:04:45.943825", "details": {"row": 1, "col": 2, "hit_mine": true, "multiplier": 1.15}}
+2026-01-20 11:06:01 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 4, "timestamp": "2026-01-20T11:06:01.548172", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:06:03 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 4, "timestamp": "2026-01-20T11:06:03.634882", "details": {"row": 0, "col": 0, "hit_mine": true, "multiplier": 1.0}}
+2026-01-20 11:06:05 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 5, "timestamp": "2026-01-20T11:06:05.934191", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:06:06 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 5, "timestamp": "2026-01-20T11:06:06.548815", "details": {"row": 0, "col": 0, "hit_mine": true, "multiplier": 1.0}}
+2026-01-20 11:06:08 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 6, "timestamp": "2026-01-20T11:06:08.461989", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:06:08 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 6, "timestamp": "2026-01-20T11:06:08.899521", "details": {"row": 0, "col": 0, "hit_mine": false, "multiplier": 2.88}}
+2026-01-20 11:06:12 - app.utils.logger - INFO - Game Action: {"action": "prize_claimed", "user_id": 1, "game_id": 6, "timestamp": "2026-01-20T11:06:12.953699", "details": {"prize_amount": 288.0, "multiplier": 2.88}}
+2026-01-20 11:06:21 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 7, "timestamp": "2026-01-20T11:06:21.488831", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:06:23 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 7, "timestamp": "2026-01-20T11:06:23.083659", "details": {"row": 1, "col": 2, "hit_mine": false, "multiplier": 2.88}}
+2026-01-20 11:06:28 - app.utils.logger - INFO - Game Action: {"action": "prize_claimed", "user_id": 1, "game_id": 7, "timestamp": "2026-01-20T11:06:28.203544", "details": {"prize_amount": 288.0, "multiplier": 2.88}}
+2026-01-20 11:06:50 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 8, "timestamp": "2026-01-20T11:06:50.478398", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:07:59 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 9, "timestamp": "2026-01-20T11:07:59.635604", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:08:01 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 9, "timestamp": "2026-01-20T11:08:01.416930", "details": {"row": 0, "col": 0, "hit_mine": false, "multiplier": 2.88}}
+2026-01-20 11:08:03 - app.utils.logger - INFO - Game Action: {"action": "prize_claimed", "user_id": 1, "game_id": 9, "timestamp": "2026-01-20T11:08:03.674883", "details": {"prize_amount": 288.0, "multiplier": 2.88}}
+2026-01-20 11:19:28 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 10, "timestamp": "2026-01-20T11:19:28.524356", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:19:30 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 10, "timestamp": "2026-01-20T11:19:30.358118", "details": {"row": 2, "col": 0, "hit_mine": false, "multiplier": 2.88}}
+2026-01-20 11:19:44 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 10, "timestamp": "2026-01-20T11:19:44.243037", "details": {"row": 2, "col": 2, "hit_mine": true, "multiplier": 2.88}}
+2026-01-20 11:19:54 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 11, "timestamp": "2026-01-20T11:19:54.876949", "details": {"bet_amount": 100.0, "grid_size": 5, "mines_count": 4}}
+2026-01-20 11:19:57 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 11, "timestamp": "2026-01-20T11:19:57.246688", "details": {"row": 2, "col": 2, "hit_mine": false, "multiplier": 1.15}}
+2026-01-20 11:20:00 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 11, "timestamp": "2026-01-20T11:20:00.683158", "details": {"row": 0, "col": 4, "hit_mine": false, "multiplier": 1.3}}
+2026-01-20 11:20:02 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 11, "timestamp": "2026-01-20T11:20:02.734881", "details": {"row": 0, "col": 3, "hit_mine": false, "multiplier": 1.45}}
+2026-01-20 11:20:04 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 11, "timestamp": "2026-01-20T11:20:04.681150", "details": {"row": 1, "col": 4, "hit_mine": false, "multiplier": 1.6}}
+2026-01-20 11:20:07 - app.utils.logger - INFO - Game Action: {"action": "prize_claimed", "user_id": 1, "game_id": 11, "timestamp": "2026-01-20T11:20:07.384167", "details": {"prize_amount": 160.0, "multiplier": 1.6}}
+2026-01-20 11:26:25 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 12, "timestamp": "2026-01-20T11:26:25.287949", "details": {"bet_amount": 100.0, "grid_size": 5, "mines_count": 3}}
+2026-01-20 11:26:28 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 12, "timestamp": "2026-01-20T11:26:28.200376", "details": {"row": 1, "col": 1, "hit_mine": true, "multiplier": 1.0}}
+2026-01-20 11:31:11 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 13, "timestamp": "2026-01-20T11:31:11.958104", "details": {"bet_amount": 100.0, "grid_size": 5, "mines_count": 5}}
+2026-01-20 11:31:13 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 13, "timestamp": "2026-01-20T11:31:13.577008", "details": {"row": 2, "col": 1, "hit_mine": false, "multiplier": 1.72}}
+2026-01-20 11:31:19 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 13, "timestamp": "2026-01-20T11:31:19.832868", "details": {"row": 3, "col": 3, "hit_mine": false, "multiplier": 1.95}}
+2026-01-20 11:31:22 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 13, "timestamp": "2026-01-20T11:31:22.474532", "details": {"row": 3, "col": 1, "hit_mine": false, "multiplier": 2.17}}
+2026-01-20 11:31:31 - app.utils.logger - INFO - Game Action: {"action": "prize_claimed", "user_id": 1, "game_id": 13, "timestamp": "2026-01-20T11:31:31.473574", "details": {"prize_amount": 217.0, "multiplier": 2.17}}
+2026-01-20 11:32:42 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 14, "timestamp": "2026-01-20T11:32:42.385132", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:32:43 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 14, "timestamp": "2026-01-20T11:32:43.170068", "details": {"row": 2, "col": 0, "hit_mine": false, "multiplier": 2.88}}
+2026-01-20 11:32:44 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 14, "timestamp": "2026-01-20T11:32:44.050468", "details": {"row": 1, "col": 2, "hit_mine": true, "multiplier": 2.88}}
+2026-01-20 11:32:47 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 15, "timestamp": "2026-01-20T11:32:47.479216", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:32:48 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 15, "timestamp": "2026-01-20T11:32:48.767193", "details": {"row": 2, "col": 0, "hit_mine": false, "multiplier": 2.88}}
+2026-01-20 11:32:50 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 15, "timestamp": "2026-01-20T11:32:50.095691", "details": {"row": 2, "col": 2, "hit_mine": true, "multiplier": 2.88}}
+2026-01-20 11:32:52 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 16, "timestamp": "2026-01-20T11:32:52.005362", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:32:52 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 16, "timestamp": "2026-01-20T11:32:52.852760", "details": {"row": 2, "col": 0, "hit_mine": false, "multiplier": 2.88}}
+2026-01-20 11:32:55 - app.utils.logger - INFO - Game Action: {"action": "prize_claimed", "user_id": 1, "game_id": 16, "timestamp": "2026-01-20T11:32:55.081832", "details": {"prize_amount": 288.0, "multiplier": 2.88}}
+2026-01-20 11:33:00 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 17, "timestamp": "2026-01-20T11:33:00.255109", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:33:00 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 17, "timestamp": "2026-01-20T11:33:00.780443", "details": {"row": 1, "col": 0, "hit_mine": false, "multiplier": 2.88}}
+2026-01-20 11:33:04 - app.utils.logger - INFO - Game Action: {"action": "prize_claimed", "user_id": 1, "game_id": 17, "timestamp": "2026-01-20T11:33:04.501918", "details": {"prize_amount": 288.0, "multiplier": 2.88}}
+2026-01-20 11:33:20 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 18, "timestamp": "2026-01-20T11:33:20.705239", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:33:21 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 18, "timestamp": "2026-01-20T11:33:21.098342", "details": {"row": 0, "col": 1, "hit_mine": false, "multiplier": 2.88}}
+2026-01-20 11:33:21 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 18, "timestamp": "2026-01-20T11:33:21.754848", "details": {"row": 2, "col": 2, "hit_mine": false, "multiplier": 3.25}}
+2026-01-20 11:33:22 - app.utils.logger - INFO - Game Action: {"action": "prize_claimed", "user_id": 1, "game_id": 18, "timestamp": "2026-01-20T11:33:22.632007", "details": {"prize_amount": 325.0, "multiplier": 3.25}}
+2026-01-20 11:33:22 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 19, "timestamp": "2026-01-20T11:33:22.820384", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:33:26 - root - INFO - Shutting down application
+2026-01-20 11:33:29 - root - INFO - Starting up application
+2026-01-20 11:33:29 - app.database - INFO - Database tables created successfully
+2026-01-20 11:33:29 - root - INFO - Database initialized successfully
+2026-01-20 11:34:22 - app.utils.auth - WARNING - Invalid token attempted to be decoded
+2026-01-20 11:34:24 - app.utils.auth - WARNING - Invalid token attempted to be decoded
+2026-01-20 11:34:25 - app.utils.auth - WARNING - Invalid token attempted to be decoded
+2026-01-20 11:34:25 - app.utils.auth - WARNING - Invalid token attempted to be decoded
+2026-01-20 11:34:25 - app.utils.auth - WARNING - Invalid token attempted to be decoded
+2026-01-20 11:34:28 - app.utils.auth - WARNING - Invalid token attempted to be decoded
+2026-01-20 11:34:33 - app.utils.auth - WARNING - Invalid token attempted to be decoded
+2026-01-20 11:34:35 - app.utils.auth - WARNING - Invalid token attempted to be decoded
+2026-01-20 11:34:41 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-01-20 11:34:41 - app.utils.logger - ERROR - Error: {"error": "Login failed for user", "error_type": "INVALID_CREDENTIALS", "timestamp": "2026-01-20T11:34:41.735678", "context": {"username": "test"}}
+2026-01-20 11:34:59 - app.utils.logger - ERROR - Error: {"error": "Registration failed: User already exists", "error_type": "DUPLICATE_USER", "timestamp": "2026-01-20T11:34:59.859353", "context": {"username": "test"}}
+2026-01-20 11:35:05 - app.utils.logger - ERROR - Error: {"error": "Login failed for user", "error_type": "INVALID_CREDENTIALS", "timestamp": "2026-01-20T11:35:05.237450", "context": {"username": "test"}}
+2026-01-20 11:35:20 - app.utils.logger - INFO - User Action: {"action": "user_login", "user_id": 1, "timestamp": "2026-01-20T11:35:20.535778"}
+2026-01-20 11:35:24 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 20, "timestamp": "2026-01-20T11:35:24.498440", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:35:24 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 20, "timestamp": "2026-01-20T11:35:24.935739", "details": {"row": 2, "col": 1, "hit_mine": false, "multiplier": 2.88}}
+2026-01-20 11:35:25 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 20, "timestamp": "2026-01-20T11:35:25.606641", "details": {"row": 1, "col": 2, "hit_mine": false, "multiplier": 3.25}}
+2026-01-20 11:35:26 - app.utils.logger - INFO - Game Action: {"action": "prize_claimed", "user_id": 1, "game_id": 20, "timestamp": "2026-01-20T11:35:26.597282", "details": {"prize_amount": 325.0, "multiplier": 3.25}}
+2026-01-20 11:36:46 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 21, "timestamp": "2026-01-20T11:36:46.193907", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:36:46 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 21, "timestamp": "2026-01-20T11:36:46.766180", "details": {"row": 1, "col": 2, "hit_mine": false, "multiplier": 2.88}}
+2026-01-20 11:36:47 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 21, "timestamp": "2026-01-20T11:36:47.418109", "details": {"row": 1, "col": 1, "hit_mine": true, "multiplier": 2.88}}
+2026-01-20 11:44:46 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 22, "timestamp": "2026-01-20T11:44:46.952298", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:44:48 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 22, "timestamp": "2026-01-20T11:44:48.508387", "details": {"row": 2, "col": 0, "hit_mine": true, "multiplier": 1.0}}
+2026-01-20 11:45:00 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 23, "timestamp": "2026-01-20T11:45:00.287027", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:45:00 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 23, "timestamp": "2026-01-20T11:45:00.619772", "details": {"row": 1, "col": 2, "hit_mine": true, "multiplier": 1.0}}
+2026-01-20 11:45:03 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 24, "timestamp": "2026-01-20T11:45:03.674687", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:45:04 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 24, "timestamp": "2026-01-20T11:45:04.077659", "details": {"row": 1, "col": 2, "hit_mine": false, "multiplier": 2.88}}
+2026-01-20 11:45:28 - app.utils.logger - INFO - Game Action: {"action": "prize_claimed", "user_id": 1, "game_id": 24, "timestamp": "2026-01-20T11:45:28.736294", "details": {"prize_amount": 288.0, "multiplier": 2.88}}
+2026-01-20 11:45:37 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 25, "timestamp": "2026-01-20T11:45:37.556568", "details": {"bet_amount": 100.0, "grid_size": 5, "mines_count": 3}}
+2026-01-20 11:45:38 - app.utils.logger - INFO - Game Action: {"action": "prize_claimed", "user_id": 1, "game_id": 25, "timestamp": "2026-01-20T11:45:38.892179", "details": {"prize_amount": 100.0, "multiplier": 1.0}}
+2026-01-20 11:48:53 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 26, "timestamp": "2026-01-20T11:48:53.998815", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:48:54 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 26, "timestamp": "2026-01-20T11:48:54.768502", "details": {"row": 0, "col": 1, "hit_mine": true, "multiplier": 1.0}}
+2026-01-20 11:48:59 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 27, "timestamp": "2026-01-20T11:48:59.631487", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:49:01 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 27, "timestamp": "2026-01-20T11:49:01.101633", "details": {"row": 2, "col": 2, "hit_mine": false, "multiplier": 2.88}}
+2026-01-20 11:49:01 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 27, "timestamp": "2026-01-20T11:49:01.931855", "details": {"row": 1, "col": 0, "hit_mine": true, "multiplier": 2.88}}
+2026-01-20 11:49:03 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 28, "timestamp": "2026-01-20T11:49:03.691769", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:49:04 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 28, "timestamp": "2026-01-20T11:49:04.532926", "details": {"row": 2, "col": 2, "hit_mine": false, "multiplier": 2.88}}
+2026-01-20 11:49:05 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 28, "timestamp": "2026-01-20T11:49:05.645842", "details": {"row": 2, "col": 0, "hit_mine": true, "multiplier": 2.88}}
+2026-01-20 11:49:07 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 29, "timestamp": "2026-01-20T11:49:07.183374", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:49:07 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 29, "timestamp": "2026-01-20T11:49:07.860004", "details": {"row": 2, "col": 2, "hit_mine": false, "multiplier": 2.88}}
+2026-01-20 11:49:08 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 29, "timestamp": "2026-01-20T11:49:08.689886", "details": {"row": 0, "col": 0, "hit_mine": false, "multiplier": 3.25}}
+2026-01-20 11:49:11 - app.utils.logger - INFO - Game Action: {"action": "prize_claimed", "user_id": 1, "game_id": 29, "timestamp": "2026-01-20T11:49:11.718021", "details": {"prize_amount": 325.0, "multiplier": 3.25}}
+2026-01-20 11:54:27 - root - INFO - Shutting down application
+2026-01-20 11:54:30 - root - INFO - Starting up application
+2026-01-20 11:54:30 - app.database - INFO - Database tables created successfully
+2026-01-20 11:54:30 - root - INFO - Database initialized successfully
+2026-01-20 11:55:21 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 30, "timestamp": "2026-01-20T11:55:21.907421", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:55:24 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 30, "timestamp": "2026-01-20T11:55:24.005256", "details": {"row": 0, "col": 0, "hit_mine": true, "multiplier": 1.0}}
+2026-01-20 11:55:25 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 31, "timestamp": "2026-01-20T11:55:25.700443", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 11:55:27 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 31, "timestamp": "2026-01-20T11:55:27.835051", "details": {"row": 2, "col": 0, "hit_mine": false, "multiplier": 1.46}}
+2026-01-20 11:55:32 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 31, "timestamp": "2026-01-20T11:55:32.167292", "details": {"row": 1, "col": 2, "hit_mine": false, "multiplier": 2.33}}
+2026-01-20 11:55:36 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 31, "timestamp": "2026-01-20T11:55:36.430561", "details": {"row": 1, "col": 1, "hit_mine": false, "multiplier": 4.07}}
+2026-01-20 11:55:37 - app.utils.logger - INFO - Game Action: {"action": "prize_claimed", "user_id": 1, "game_id": 31, "timestamp": "2026-01-20T11:55:37.553015", "details": {"prize_amount": 407.0, "multiplier": 4.07}}
+2026-01-20 11:57:14 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 32, "timestamp": "2026-01-20T11:57:14.355654", "details": {"bet_amount": 100.0, "grid_size": 4, "mines_count": 3}}
+2026-01-20 11:57:15 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 32, "timestamp": "2026-01-20T11:57:15.015791", "details": {"row": 2, "col": 2, "hit_mine": false, "multiplier": 1.19}}
+2026-01-20 11:57:15 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 32, "timestamp": "2026-01-20T11:57:15.780572", "details": {"row": 1, "col": 2, "hit_mine": false, "multiplier": 1.49}}
+2026-01-20 11:57:16 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 32, "timestamp": "2026-01-20T11:57:16.396861", "details": {"row": 1, "col": 1, "hit_mine": false, "multiplier": 1.9}}
+2026-01-20 11:57:16 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 32, "timestamp": "2026-01-20T11:57:16.883458", "details": {"row": 2, "col": 1, "hit_mine": true, "multiplier": 1.9}}
+2026-01-20 12:02:00 - app.utils.logger - INFO - Game Action: {"action": "game_started", "user_id": 1, "game_id": 33, "timestamp": "2026-01-20T12:02:00.263276", "details": {"bet_amount": 100.0, "grid_size": 3, "mines_count": 3}}
+2026-01-20 12:02:01 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 33, "timestamp": "2026-01-20T12:02:01.045592", "details": {"row": 0, "col": 0, "hit_mine": false, "multiplier": 1.46}}
+2026-01-20 12:02:04 - app.utils.logger - INFO - Game Action: {"action": "cell_clicked", "user_id": 1, "game_id": 33, "timestamp": "2026-01-20T12:02:04.618294", "details": {"row": 0, "col": 2, "hit_mine": false, "multiplier": 2.33}}
+2026-01-20 12:02:06 - app.utils.logger - INFO - Game Action: {"action": "prize_claimed", "user_id": 1, "game_id": 33, "timestamp": "2026-01-20T12:02:06.470242", "details": {"prize_amount": 233.0, "multiplier": 2.33}}
+2026-01-20 12:08:47 - app.utils.auth - WARNING - Invalid token attempted to be decoded
+2026-01-20 12:09:03 - app.utils.auth - WARNING - Invalid token attempted to be decoded
+2026-01-20 12:09:30 - app.utils.auth - WARNING - Invalid token attempted to be decoded
+2026-01-20 12:11:18 - app.utils.auth - WARNING - Invalid token attempted to be decoded
+2026-01-20 12:11:21 - app.utils.auth - WARNING - Invalid token attempted to be decoded
+2026-01-20 12:11:21 - app.utils.auth - WARNING - Invalid token attempted to be decoded
+2026-01-20 12:11:33 - app.utils.auth - WARNING - Invalid token attempted to be decoded
+2026-01-20 12:11:36 - app.utils.auth - WARNING - Invalid token attempted to be decoded
+2026-01-22 06:54:53 - root - INFO - Starting up application
+2026-01-22 06:54:53 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:54:53 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:54:56 - root - INFO - Starting up application
+2026-01-22 06:54:56 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:54:56 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:54:59 - root - INFO - Starting up application
+2026-01-22 06:54:59 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:54:59 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:55:04 - root - INFO - Starting up application
+2026-01-22 06:55:04 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:55:04 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:55:09 - root - INFO - Starting up application
+2026-01-22 06:55:09 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:55:09 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:55:14 - root - INFO - Starting up application
+2026-01-22 06:55:14 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:55:14 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:55:19 - root - INFO - Starting up application
+2026-01-22 06:55:19 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:55:19 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:55:27 - root - INFO - Starting up application
+2026-01-22 06:55:27 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:55:27 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:55:41 - root - INFO - Starting up application
+2026-01-22 06:55:41 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:55:41 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:56:07 - root - INFO - Starting up application
+2026-01-22 06:56:07 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:56:07 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:56:59 - root - INFO - Starting up application
+2026-01-22 06:56:59 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:56:59 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:58:01 - root - INFO - Starting up application
+2026-01-22 06:58:01 - app.database - ERROR - Error creating database tables: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-22 06:58:01 - root - ERROR - Failed to initialize database: (psycopg2.OperationalError) could not translate host name "db" to address: Name or service not known
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
